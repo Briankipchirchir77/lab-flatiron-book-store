@@ -44,4 +44,30 @@ const bookStore = {
 }
 
 // Write your code here!
+const bookStoreTitle = document.getElementById("header")
+const bookList = document.getElementById("book-list")
 
+// updating title
+bookStoreTitle.textContent = bookStore.name
+
+// removing
+document.getElementById("delete-this").remove()
+
+// looping through books
+bookStore.books.forEach(function(book) {
+
+  const bookContainer = document.createElement("li")
+  const bookTitle = document.createElement("h3")
+  const bookAuthor = document.createElement("p")
+  const bookImage = document.createElement("img")
+
+  bookTitle.textContent = book.title
+  bookAuthor.textContent = book.author
+  bookImage.src = book.imageUrl
+
+  bookContainer.appendChild(bookTitle)
+  bookContainer.appendChild(bookAuthor)
+  bookContainer.appendChild(bookImage)
+
+  bookList.appendChild(bookContainer)
+})
